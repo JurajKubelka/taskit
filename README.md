@@ -1,4 +1,16 @@
 
+# feenkcom/taskit
+
+This is a fork of (sbragagnolo/taskit)[https://github.com/sbragagnolo/taskit].  To enable changes to be sent back upstream as PRs, the following branch structure is being used:
+
+- `master` is the branch used by Gtoolkit.  Load this if you just want to use the TaskIt version used by Gtoolkit.
+- `development` is used to merge in all proposed fixes and upstream updates.
+
+Nothing should be committed to `master` directly, only `development` should be merged in to `master` when it is ready for release.
+
+A branch is created off `development` for each code modification that will be submitted as a PR back upstream.
+
+
 # TaskIt
 
 >Anything that can go wrong, will go wrong. -- Murphy's Law
