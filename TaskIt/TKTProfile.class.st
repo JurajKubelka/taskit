@@ -193,8 +193,3 @@ TKTProfile >> serviceManager [
 TKTProfile >> serviceManager: anObject [
 	serviceManager := anObject
 ]
-
-{ #category : #accessing }
-TKTProfile >> values: aDictionary [
-	aDictionary keysAndValuesDo: [ :k :v | self perform: ('{1}:' format: {k}) asSymbol withArguments: {v} ]
-]

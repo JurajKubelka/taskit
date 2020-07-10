@@ -14,9 +14,10 @@ Class {
 		'taskQueue',
 		'name',
 		'process',
-		'currentTaskExecution'
+		'currentTaskExecution',
+		'processPriority'
 	],
-	#category : 'TaskIt-Worker'
+	#category : #'TaskIt-Worker'
 }
 
 { #category : #'start-stop' }
@@ -28,7 +29,10 @@ TKTWorkerProcess >> currentTaskExecution [
 TKTWorkerProcess >> executeTask: aTaskExecution [
 	currentTaskExecution := aTaskExecution.
 	super executeTask: aTaskExecution.
-	currentTaskExecution := nil
+	currentTaskExecution := nil.
+	"The task may changes the process priority.  Reset it as a matter of course."
+	processPriority ifNotNil:
+		[ Processor activeProcess priority: processPriority ].
 ]
 
 { #category : #'start-stop' }
@@ -65,6 +69,16 @@ TKTWorkerProcess >> name: aString [
 TKTWorkerProcess >> process [
 
 	^ process
+]
+
+{ #category : #accessing }
+TKTWorkerProcess >> processPriority [
+	^ processPriority
+]
+
+{ #category : #accessing }
+TKTWorkerProcess >> processPriority: anObject [
+	processPriority := anObject
 ]
 
 { #category : #'start-stop' }

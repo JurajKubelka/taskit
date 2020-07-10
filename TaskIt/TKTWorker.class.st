@@ -31,7 +31,8 @@ Class {
 	#instVars : [
 		'process',
 		'name',
-		'exceptionHandler'
+		'exceptionHandler',
+		'processPriority'
 	],
 	#category : #'TaskIt-Worker'
 }
@@ -108,6 +109,16 @@ TKTWorker >> process [
 ]
 
 { #category : #accessing }
+TKTWorker >> processPriority [
+	^ processPriority
+]
+
+{ #category : #accessing }
+TKTWorker >> processPriority: anObject [
+	processPriority := anObject
+]
+
+{ #category : #accessing }
 TKTWorker >> queue [
 	^ queue
 ]
@@ -123,6 +134,7 @@ TKTWorker >> start [
 	process := TKTConfiguration poolWorkerProcess new
 		taskQueue: queue;
 		name: name;
+		processPriority: processPriority;
 		yourself.
 	exceptionHandler ifNotNil: [ process exceptionHandler: exceptionHandler ].
 	process start.

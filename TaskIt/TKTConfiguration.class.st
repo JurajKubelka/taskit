@@ -145,20 +145,6 @@ TKTConfiguration class >> serviceManager: aManager during: aBlock [
 	^ self optionAt: #serviceManager value: aManager during: aBlock
 ]
 
-{ #category : #'as yet unclassified' }
-TKTConfiguration class >> settingsOn: aBuilder [
-	<systemsettings>
-	(aBuilder group: #taskitExecution)
-		label: 'Task it execution profile';
-		with: [ (aBuilder pickOne: #profileNamed)
-				label: 'Exeucting Profile';
-				target: self;
-				parent: #taskitExecution;
-				default: #development;
-				order: 1;
-				domainValues: (self profiles collect: #key) ]
-]
-
 { #category : #accessing }
 TKTConfiguration >> basicValue [ 
 	^ value
