@@ -70,7 +70,7 @@ Class {
 		'stopCallbacks',
 		'stepDelay'
 	],
-	#category : 'TaskIt-Services'
+	#category : #'TaskIt-Services'
 }
 
 { #category : #starting }
@@ -146,6 +146,9 @@ TKTService >> scheduleRecursiveTask [
 		ifTrue: [ worker schedule: [ self doStop ] ]
 		ifFalse: [
 			worker schedule: [ 
+				"The watchdog processes are tidying up when things go wrong, 
+				so shouldn't interrupt user interaction."
+				Processor activeProcess priority: Processor userSchedulingPriority - 1.
 				self iterateService.
 				self scheduleRecursiveTask ]]
 ]
