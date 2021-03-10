@@ -12,7 +12,7 @@ Class {
 		'systemDataSource',
 		'processDataSource'
 	],
-	#category : 'TaskItBrowser-Widget'
+	#category : #'TaskItBrowser-Widget'
 }
 
 { #category : #'as yet unclassified' }
@@ -119,8 +119,8 @@ TKTFastTableProcess >> systemProcessesTable [
 				addColumn: ((FTColumn id: 'State') width: 40);
 				intercellSpacing: 1;
 				dataSource: systemDataSource;
-				selectRowIndex: 1;
-				showFirstRowSelection;
+				selectIndex: 1;
+				showFirstSelection;
 				beMultipleSelection;
 				enableFilter;
 				yourself ] ])
@@ -145,8 +145,8 @@ TKTFastTableProcess >> taskItProcessesTable [
 				addColumn: ((FTColumn id: 'To') width: 200);
 				intercellSpacing: 1;
 				dataSource: processDataSource;
-				selectRowIndex: 1;
-				showFirstRowSelection;
+				selectIndex: 1;
+				showFirstSelection;
 				beMultipleSelection;
 				beResizable;
 				enableFilter;
