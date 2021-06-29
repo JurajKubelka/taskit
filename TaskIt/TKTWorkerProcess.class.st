@@ -49,8 +49,9 @@ TKTWorkerProcess >> isRunning [
 { #category : #'start-stop' }
 TKTWorkerProcess >> kill [
 
-	taskQueue := nil. 
 	self stop.
+	taskQueue := nil. 
+
 ]
 
 { #category : #accessing }
